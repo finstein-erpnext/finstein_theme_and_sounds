@@ -1,7 +1,7 @@
 [project]
-name = "fintheme_and_sounds"
+name = "finstein_theme_and_sounds"
 authors = [
-    { name = "Finstein", email = "darwinjesuraj.a@finstein.ai"}
+    { name = "Finstein", email = "erpnext@finstein.ai"}
 ]
 description = "Per-user theme and sound personalization for the Frappe & ERPNext Desk — live color editor, WCAG-validated palettes, and a per-user Sound Studio."
 requires-python = ">=3.14"
