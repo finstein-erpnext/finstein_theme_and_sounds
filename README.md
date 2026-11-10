@@ -6,7 +6,7 @@
 </table>
 <div align="center" markdown="1">
 
-# theme and Sounds
+# Finstein Theme and Sounds
 
 Per-user theme and sound personalization for Frappe & ERPNext Desk — live color editor, curated WCAG-validated palettes, 17 bundled themes, and a Sound Studio that lets every user pick their own audio for save / submit / login / notifications and more.
 
@@ -132,20 +132,20 @@ Whitelisted Python entry points — callable from JS or REST.
 
 ```python
 # Theme — read + write
-fintheme_and_sounds.api.get_available_themes()                       # → {defaults, owned, public}
-fintheme_and_sounds.api.get_active_theme()                           # → {theme, overrides}
-fintheme_and_sounds.api.set_active_theme(theme_name, overrides=None) # apply a theme
-fintheme_and_sounds.api.save_custom_theme(payload, share_public=0)   # create/update a theme
-fintheme_and_sounds.api.delete_custom_theme(theme_name)
-fintheme_and_sounds.api.clear_active_theme()                         # back to Frappe stock
-fintheme_and_sounds.api.get_recommended_palettes()                   # the 8 curated palettes
+finstein_theme_and_sounds.api.get_available_themes()                       # → {defaults, owned, public}
+finstein_theme_and_sounds.api.get_active_theme()                           # → {theme, overrides}
+finstein_theme_and_sounds.api.set_active_theme(theme_name, overrides=None) # apply a theme
+finstein_theme_and_sounds.api.save_custom_theme(payload, share_public=0)   # create/update a theme
+finstein_theme_and_sounds.api.delete_custom_theme(theme_name)
+finstein_theme_and_sounds.api.clear_active_theme()                         # back to Frappe stock
+finstein_theme_and_sounds.api.get_recommended_palettes()                   # the 8 curated palettes
 
 # Sounds — read + write
-fintheme_and_sounds.api.get_user_sounds()                            # → {enabled, mapping}
-fintheme_and_sounds.api.set_user_sound(event_key, file_url, volume=0.5)
-fintheme_and_sounds.api.clear_user_sound(event_key)
-fintheme_and_sounds.api.toggle_user_sounds(enabled)                  # 0/1 master switch
-fintheme_and_sounds.api.clear_all_user_sounds()
+finstein_theme_and_sounds.api.get_user_sounds()                            # → {enabled, mapping}
+finstein_theme_and_sounds.api.set_user_sound(event_key, file_url, volume=0.5)
+finstein_theme_and_sounds.api.clear_user_sound(event_key)
+finstein_theme_and_sounds.api.toggle_user_sounds(enabled)                  # 0/1 master switch
+finstein_theme_and_sounds.api.clear_all_user_sounds()
 ```
 
 All endpoints respect Frappe's permission system and invalidate the per-user `bootinfo` cache on write, so the **next page load** picks up the change without a `bench restart`.
@@ -163,7 +163,7 @@ SoundManager.applyMapping({ login: { url: "/files/my.mp3", volume: 0.6 } });
 SoundManager.setEnabled(true);
 ```
 
-The full sound playback pipeline (event → audio element → 3-second cap → volume) is wired in [`sound_manager.js`](fintheme_and_sounds/public/js/sound_manager.js); the editor UI is in [`sound_studio.js`](fintheme_and_sounds/public/js/sound_studio.js).
+The full sound playback pipeline (event → audio element → 3-second cap → volume) is wired in [`sound_manager.js`](finstein_theme_and_sounds/public/js/sound_manager.js); the editor UI is in [`sound_studio.js`](finstein_theme_and_sounds/public/js/sound_studio.js).
 
 ---
 
@@ -200,7 +200,7 @@ and 2.x will not run on v15.
 
 ## Sounds
 
-Every bundled sound in [`fintheme_and_sounds/public/sounds/`](fintheme_and_sounds/public/sounds/) is an **original tone synthesised from scratch** by [`tools/generate_sounds.py`](tools/generate_sounds.py) using only the Python standard library — no recordings, no samples, no third-party audio. There are 36 files: 12 Desk events × 3 presets each, with preset 1 of every event registered as the default.
+Every bundled sound in [`finstein_theme_and_sounds/public/sounds/`](finstein_theme_and_sounds/public/sounds/) is an **original tone synthesised from scratch** by [`tools/generate_sounds.py`](tools/generate_sounds.py) using only the Python standard library — no recordings, no samples, no third-party audio. There are 36 files: 12 Desk events × 3 presets each, with preset 1 of every event registered as the default.
 
 To retune or regenerate them, edit the recipes in `tools/generate_sounds.py` and run:
 

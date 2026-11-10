@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the bundled UI sound effects for Fintheme and Sounds.
+"""Generate the bundled UI sound effects for Finstein Theme and Sounds.
 
 Every sound is synthesised from scratch using only the Python standard
 library — no samples, no recordings, no third-party audio. Each resulting
@@ -10,7 +10,7 @@ Run from the app repository root:
 
     python3 tools/generate_sounds.py
 
-Output: fintheme_and_sounds/public/sounds/<event>-<n>.wav
+Output: finstein_theme_and_sounds/public/sounds/<event>-<n>.wav
         12 events x 3 presets = 36 files. Preset 1 of each event is the
         "apt" default used by hooks.py.
 """
@@ -25,7 +25,7 @@ SR = 44100  # sample rate (Hz)
 
 OUT_DIR = os.path.join(
 	os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-	"fintheme_and_sounds",
+	"finstein_theme_and_sounds",
 	"public",
 	"sounds",
 )

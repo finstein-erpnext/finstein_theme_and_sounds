@@ -8,7 +8,7 @@ on:
   pull_request:
 
 concurrency:
-  group: main-fintheme_and_sounds-${{ github.event.number }}
+  group: main-finstein_theme_and_sounds-${{ github.event.number }}
   cancel-in-progress: true
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.14'
       - name: Run frappe-free unit tests
-        run: python -m unittest discover -s fintheme_and_sounds/tests -t . -v
+        run: python -m unittest discover -s finstein_theme_and_sounds/tests -t . -v
 
   tests:
     runs-on: ubuntu-latest
@@ -102,10 +102,10 @@ jobs:
       - name: Install
         working-directory: /home/runner/frappe-bench
         run: |
-          bench get-app fintheme_and_sounds $GITHUB_WORKSPACE
+          bench get-app finstein_theme_and_sounds $GITHUB_WORKSPACE
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
-          bench --site test_site install-app fintheme_and_sounds
+          bench --site test_site install-app finstein_theme_and_sounds
           bench build
         env:
           CI: 'Yes'
@@ -114,6 +114,6 @@ jobs:
         working-directory: /home/runner/frappe-bench
         run: |
           bench --site test_site set-config allow_tests true
-          bench --site test_site run-tests --app fintheme_and_sounds
+          bench --site test_site run-tests --app finstein_theme_and_sounds
         env:
           TYPE: server
